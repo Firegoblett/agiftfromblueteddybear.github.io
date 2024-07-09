@@ -28,6 +28,16 @@
             font-size: 16px;
             cursor: pointer;
         }
+        .heart {
+            position: absolute;
+            font-size: 50px;
+            color: red;
+            animation: fadeOut 3s forwards;
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
         canvas {
             position: fixed;
             top: 0;
@@ -48,7 +58,7 @@
     <h2>Little teddy creates a E-teddy for you. Accept and make a wish!</h2>
     <h3>Hope u have a wonderful day >u<</h3>
     <h4>From Lydia u榛<span class="red-heart">❤</span></h4>
-    <span style='font-size:100px;'>🦥</span>
+    <span id="sloth" style='font-size:100px; cursor: pointer;'>🦥</span>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
     <script>
@@ -78,6 +88,21 @@
                 }
             }());
         }
+
+        document.getElementById('sloth').addEventListener('click', function(event) {
+            var heart = document.createElement('span');
+            heart.className = 'heart';
+            heart.innerHTML = '❤';
+            document.body.appendChild(heart);
+
+            var rect = event.target.getBoundingClientRect();
+            heart.style.left = rect.left + window.scrollX + 'px';
+            heart.style.top = rect.top + window.scrollY + 'px';
+
+            setTimeout(function() {
+                heart.remove();
+            }, 3000);
+        });
     </script>
 </body>
 </html>
