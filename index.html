@@ -16,8 +16,10 @@
             width: 200px;
             height: auto;
             float: right;
-            margin-left:20px;
-            margin-right:20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            opacity: 0; /* 初始隱藏圖片 */
+            transition: opacity 2s; /* 設置漸變效果 */
         }
         .confetti-button {
             display: block;
@@ -40,7 +42,7 @@
 <body style="background-color:lightblue;color:darkblue;">
     <h1>Wow! Today is Bruce's 22-year-old birthday.😄</h1>
     <img src="img/delightful_bluebear.png" alt="Description of image" class="resized-image">
-    <img src="img/party.jpg" alt="Party image" class="party-image">
+    <img id="partyImage" src="img/party.jpg" alt="Party image" class="party-image">
     <button class="confetti-button" onclick="makeConfetti()">Make a Wish!</button>
     <canvas id="confetti-canvas"></canvas>
     <h2>Little teddy creates a E-teddy for you. Accept and make a wish!</h2>
@@ -53,6 +55,9 @@
         function makeConfetti() {
             var duration = 5 * 1000;
             var end = Date.now() + duration;
+
+            // 顯示圖片
+            document.getElementById('partyImage').style.opacity = 1;
 
             (function frame() {
                 confetti({
