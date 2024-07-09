@@ -13,6 +13,10 @@
             height: auto;
             margin: 10px;
         }
+        .party-image {
+            opacity: 0; /* 初始隱藏圖片 */
+            transition: opacity 2s; /* 設置漸變效果 */
+        }
         .image-container {
             display: flex;
             justify-content: center;
@@ -65,7 +69,9 @@
     <button class="confetti-button" onclick="makeConfetti()">Make a Wish!</button>
     <h3>Hope u have a wonderful day >u<</h3>
     <h4>From Lydia u榛<span class="red-heart">❤</span></h4>
-    <span id="sloth" style='font-size:100px; cursor: pointer;'>🦥</span>
+    <div style="text-align: center;">
+        <span id="sloth" style='font-size:100px; cursor: pointer;'>🦥</span>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
     <script>
