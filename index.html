@@ -14,13 +14,13 @@
             margin: 10px;
         }
         .party-image {
-            opacity: 0; /* 初始隱藏圖片 */
-            transition: opacity 2s; /* 設置漸變效果 */
+            opacity: 0; 
+            transition: opacity 2s; 
         }
         .image-container {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap; /* 使圖片在小螢幕上換行 */
+            flex-wrap: wrap; 
         }
         .confetti-button {
             display: block;
@@ -49,11 +49,12 @@
             z-index: 9999;
         }
         h1, h2, h3, h4 {
-            text-align: center; /* 將所有標題文字置中 */
+            text-align: center;
         }
         @media (max-width: 768px) {
             .image-container {
-                flex-direction: column; /* 在小螢幕上圖片垂直排列 */
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -89,7 +90,6 @@
             var duration = 5 * 1000;
             var end = Date.now() + duration;
 
-            // 顯示圖片
             document.getElementById('partyImage').style.opacity = 1;
 
             (function frame() {
@@ -110,7 +110,7 @@
                     requestAnimationFrame(frame);
                 } else {
                     isAnimating = false;
-                    clickCount = 0; // 重置點擊計數器
+                    clickCount = 0;
                 }
             }());
         }
