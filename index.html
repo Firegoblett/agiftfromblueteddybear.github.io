@@ -18,8 +18,8 @@
             float: right;
             margin-left: 20px;
             margin-right: 20px;
-            opacity: 0; /* 初始隱藏圖片 */
-            transition: opacity 2s; /* 設置漸變效果 */
+            opacity: 0; 
+            transition: opacity 2s; 
         }
         .confetti-button {
             display: block;
@@ -53,9 +53,9 @@
     <h1>Wow! Today is Bruce's 22-year-old birthday.😄</h1>
     <img src="img/delightful_bluebear.png" alt="Description of image" class="resized-image">
     <img id="partyImage" src="img/party.jpg" alt="Party image" class="party-image">
+    <h2>Little teddy creates a E-teddy for you. Accept and make a wish!</h2>
     <button class="confetti-button" onclick="makeConfetti()">Make a Wish!</button>
     <canvas id="confetti-canvas"></canvas>
-    <h2>Little teddy creates a E-teddy for you. Accept and make a wish!</h2>
     <h3>Hope u have a wonderful day >u<</h3>
     <h4>From Lydia u榛<span class="red-heart">❤</span></h4>
     <span id="sloth" style='font-size:100px; cursor: pointer;'>🦥</span>
@@ -76,7 +76,6 @@
             var duration = 5 * 1000;
             var end = Date.now() + duration;
 
-            // 顯示圖片
             document.getElementById('partyImage').style.opacity = 1;
 
             (function frame() {
@@ -97,7 +96,7 @@
                     requestAnimationFrame(frame);
                 } else {
                     isAnimating = false;
-                    clickCount = 0; // 重置點擊計數器
+                    clickCount = 0;
                 }
             }());
         }
