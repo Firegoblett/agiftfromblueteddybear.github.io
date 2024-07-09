@@ -8,18 +8,15 @@
         .red-heart {
             color: red;
         }
-        .resized-image {
+        .resized-image, .party-image {
             width: 200px;
             height: auto;
+            margin: 10px;
         }
-        .party-image {
-            width: 200px;
-            height: auto;
-            float: right;
-            margin-left: 20px;
-            margin-right: 20px;
-            opacity: 0; /* 初始隱藏圖片 */
-            transition: opacity 2s; /* 設置漸變效果 */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* 使圖片在小螢幕上換行 */
         }
         .confetti-button {
             display: block;
@@ -47,18 +44,22 @@
             pointer-events: none;
             z-index: 9999;
         }
-        h1, h3, h4 {
-            text-align: center; /* 將 h1, h3, h4 標籤的文字置中 */
+        h1, h2, h3, h4 {
+            text-align: center; /* 將所有標題文字置中 */
         }
-        h2 {
-            text-align: left; /* 將 h2 標籤的文字向左對齊 */
+        @media (max-width: 768px) {
+            .image-container {
+                flex-direction: column; /* 在小螢幕上圖片垂直排列 */
+            }
         }
     </style>
 </head>
 <body style="background-color:lightblue;color:darkblue;">
     <h1>Wow! Today is Bruce's 22-year-old birthday.😄</h1>
-    <img src="img/delightful_bluebear.png" alt="Description of image" class="resized-image">
-    <img id="partyImage" src="img/party.jpg" alt="Party image" class="party-image">
+    <div class="image-container">
+        <img src="img/delightful_bluebear.png" alt="Description of image" class="resized-image">
+        <img id="partyImage" src="img/party.jpg" alt="Party image" class="party-image">
+    </div>
     <canvas id="confetti-canvas"></canvas>
     <h2>Little teddy creates a E-teddy for you. Accept and make a wish!</h2>
     <button class="confetti-button" onclick="makeConfetti()">Make a Wish!</button>
